@@ -1,13 +1,11 @@
 #include "UnsortedList.h"
 
-template <class ItemType>
-UnsortedList<ItemType>::UnsortedList() {
+UnsortedList::UnsortedList() {
     listData = NULL;
 }
 
-template <class ItemType>
-UnsortedList<ItemType>::~UnsortedList() {
-    NodeType<ItemType>* temp;
+UnsortedList::~UnsortedList() {
+    NodeType* temp;
 
     while (listData != NULL) {
         temp = listData;
@@ -16,22 +14,19 @@ UnsortedList<ItemType>::~UnsortedList() {
     }
 }
 
-template <class ItemType>
-void UnsortedList<ItemType>::InsertItem(ItemType item) {
-    NodeType<ItemType>* node = new NodeType<ItemType>;
+void UnsortedList::InsertItem(int item) {
+    NodeType* node = new NodeType;
     node->data = item;
 
     node->next = listData;
     listData = node;
 }
 
-template <class ItemType>
-void UnsortedList<ItemType>::ResetLoc() {
+void UnsortedList::ResetLoc() {
     curPtr = listData;
 }
 
-template <class ItemType>
-NodeType<ItemType>* UnsortedList<ItemType>::MinLoc(NodeType<ItemType>* location, NodeType<ItemType>* minPtr) {
+NodeType* UnsortedList::MinLoc(NodeType* location, NodeType* minPtr) {
     if (location != NULL) {
         if (location->data < minPtr->data)
             minPtr = location;
@@ -42,13 +37,12 @@ NodeType<ItemType>* UnsortedList<ItemType>::MinLoc(NodeType<ItemType>* location,
     }
 }
 
-template <class ItemType>
-void UnsortedList<ItemType>::Sort(NodeType<ItemType>* location) {
-    NodeType<ItemType>* minPtr;
-    ItemType temp;
+void UnsortedList::Sort(NodeType* location) {
+    NodeType* minPtr;
+    int temp;
 
     if (location != NULL && location->next != NULL) {
-        minPtr = MinLoc(location);
+        minPtr = MinLoc(location, location);
         temp = minPtr->data;
         minPtr->data = location->data;
         location->data = temp;
@@ -57,22 +51,20 @@ void UnsortedList<ItemType>::Sort(NodeType<ItemType>* location) {
     }
 }
 
-template <class ItemType>
-std::string UnsortedList<ItemType>::GetList() {
+std::string UnsortedList::GetList() {
     ResetLoc();
 
     std::string res = "";
 
     while (curPtr != NULL) {
-        res += curPtr->data;
+        res += std::to_string(curPtr->data);
         curPtr = curPtr->next;
     }
 
     return res;
 }
 
-template <class ItemType>
-std::string UnsortedList<ItemType>::GetSortedList() {
+std::string UnsortedList::GetSortedList() {
     Sort(listData);
 
     ResetLoc();
@@ -80,7 +72,7 @@ std::string UnsortedList<ItemType>::GetSortedList() {
     std::string res = "";
 
     while (curPtr != NULL) {
-        res += curPtr->data;
+        res += std::to_string(curPtr->data);
         curPtr = curPtr->next;
     }
 

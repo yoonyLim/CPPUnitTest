@@ -1,27 +1,25 @@
 #include <iostream>
 #include <string>
 
-template <class ItemType>
 struct NodeType {
-    ItemType data;
+    int data;
     NodeType* next;
 };
 
-template <class ItemType>
 class UnsortedList {
-    public:
+public:
     UnsortedList();
     ~UnsortedList();
-    void InsertItem(ItemType item);
+    void InsertItem(int item);
     std::string GetList();
     std::string GetSortedList();
     void ResetLoc();
-    void Sort(NodeType<ItemType>* location);
+    void Sort(NodeType* location);
 
-    protected:
-    NodeType<ItemType>* MinLoc(NodeType<ItemType>* location, NodeType<ItemType>* minPtr);
+protected:
+    NodeType* MinLoc(NodeType* location, NodeType* minPtr);
 
-    private:
-    NodeType<ItemType>* listData;
-    NodeType<ItemType>* curPtr;
+private:
+    NodeType* listData;
+    NodeType* curPtr;
 };

@@ -6,7 +6,7 @@ int main() {
 	int item3 = 2;
 	int item4 = 5;
 
-	UnsortedList<int> list;
+	UnsortedList list;
 
 	list.InsertItem(item1);
 	list.InsertItem(item2);
