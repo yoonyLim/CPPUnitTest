@@ -39,13 +39,13 @@ CPPUnitTest
 mkdir build && cd build
 ```
 
-2. Compile every directories with the following command:
+2. Compile every directory with the following command:
 
 ```bash
 cmake .. -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" 
 ```
 
-3. Comile the project with the following command:
+3. Build the project with the following command:
 
 ```bash
 make all
@@ -57,7 +57,7 @@ make all
 ./test/[PROJECT_NAME]_test
 ```
 
-In order to log the test output to a file
+To log the test output to a file
 
 ```bash
 ./test/[PROJECT_NAME]_test > [OUTPUT_FILE_NAME]
