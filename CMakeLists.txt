@@ -12,4 +12,4 @@ include_directories(src)
 # 'lib' is the folder with Google Test sources
 add_subdirectory(src)
 add_subdirectory(test)
-add_subdirectory(lib/googletest)
+add_subdirectory(lib/googlemock)
